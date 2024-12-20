@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background-attachment: local;
@@ -26,7 +30,7 @@ h2 {
 
 h5 {
     color: #af5e40;
-    font-size: 18px;
+    font-size: 22px;
   }
 
 p {
@@ -72,10 +76,22 @@ nav {
     align-items: center;
 }
 
-.nav-img {
+/* .nav-img {
     width: 70px;
     
+} */
+
+.nav-item a {
+    list-style: none;
+    color: white;
+    text-decoration: none;
 }
+
+/* .nav-item a:hover {
+    border-bottom: 3px solid #af5e40;
+    /* box-shadow: 2px 2px 5px #000000; */
+    /* border-bottom */
+/* } */ 
 
 nav ul li {
     margin: 10px 20px;
@@ -96,6 +112,50 @@ nav ul li {
     padding-right: 15px;
     text-shadow: 2px 2px 5px #000000;
 }
+
+.nav-list::after { 
+    content: ""; 
+    width: 0%; 
+    height: 3px; 
+    background: rgb(172, 172, 253); 
+    position: absolute; 
+    left: 0; 
+    bottom: -6px; 
+    transition: 0.5s; 
+  } 
+   
+  .nav-list:hover::after { 
+    width: 100%; 
+  }
+
+  .to-top { 
+    background: white; 
+    position: fixed; 
+    bottom: 16px; 
+    right: 32px; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 32px; 
+    color: #262626; 
+    text-decoration: none; 
+    opacity: 0; 
+    transition: all .4s; 
+    -webkit-tap-highlight-color: transparent; 
+  }
+
+  .to-top:hover {
+    color: #af5e40;
+  }
+
+  .to-top.active { 
+    bottom: 35px; 
+    pointer-events: auto; 
+    opacity: 1; 
+  }
 
 /* SECTION */
 
@@ -124,16 +184,27 @@ section {
     width: 70%;
  }
 
+.about-right-cell {
+    display: flex;
+ }
+
+.about-right-cell i {
+    align-content: center;
+    padding-right: 20px;
+    color: #af5e40;
+}
+
 .tab {
     overflow: hidden;
     display: flex;
     justify-content: left;
+    padding-top: 50px;
   }
 
 /* tab content */
 
 .tab-button {
-    align-items: center center;
+    align-items: center;
     font-size: 20px;
     font-family: sans-serif;
     color: gray;
@@ -143,9 +214,80 @@ section {
     cursor: pointer;
 }
 
-.tab-button:hover {
+.tab-page ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.tab-page ul li::marker {
     color: #af5e40;
 }
+
+.tab-page {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    margin-top: 20px;
+}
+/*  */
+
+.job-card {
+    background: #282828;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.job-card h5 {
+    color: #FFD1DC;
+    font-size: 20px;
+}
+
+.job-card p {
+    margin: 5px 0;
+    color: #cfcfcf;
+}
+
+.job-card ul li {
+    margin-bottom: 5px;
+    color: #d4d4d4;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    transition: 0.5s;
+    background: linear-gradient(145deg, #292929, #343434);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px solid #af5e40;
+}
+
+.timeline .event {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline .event:before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background: #af5e40;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.tab-button:hover {
+    color: #af5e40;
+} 
 
 .tab-page {
     display: none;
@@ -265,6 +407,12 @@ section {
     flex-direction: column;
 }
 
+.contact-left-container {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
 .contact-right {
     width: 70%;
     margin: auto;
@@ -277,8 +425,7 @@ section {
 .contact-icons a { 
     font-size: 30px; 
     margin-right: 15px; 
-    color: #ababab; 
-    /* display: inline-block;  */
+    color: #ababab;
     transition: transform 0.5s; 
 } 
 
@@ -324,17 +471,9 @@ form input, form textarea {
 }
 
 @media screen and (max-width:800px){
-    .nav-list {
-    display: block;
-    margin: auto;
-    list-style-type: none;
-    align-items: center;
-}
-
 .about-container, .about-left, .about-right {
     display: block;
     margin: auto;
-    /* justify-content: space-between; */
 }
 
 .about-photo {
