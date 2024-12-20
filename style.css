@@ -85,6 +85,7 @@ nav {
     list-style: none;
     color: white;
     text-decoration: none;
+    text-decoration-line: none;
 }
 
 /* .nav-item a:hover {
