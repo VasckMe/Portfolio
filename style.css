@@ -85,7 +85,6 @@ nav {
     list-style: none;
     color: white;
     text-decoration: none;
-    text-decoration-line: none;
 }
 
 /* .nav-item a:hover {
@@ -516,9 +515,7 @@ form input, form textarea {
 
 .contact {
     display: block;
-    /* margin: auto; */
 }
-
 
 .contact-left h2 {
     margin: auto;
